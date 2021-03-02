@@ -1,0 +1,62 @@
+﻿@model IEnumerable<ShoppingCart.Application.ViewModels.CartProductViewModel>
+@{
+    ViewData["Title"] = "ViewCart";
+}
+
+
+@if (Model.Count() == 0)
+{
+    <h1>No Products in Shopping Cart</h1>
+}
+else
+{
+    <h1>Cart Products</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-image">
+                    <thead>
+                        <tr>
+                            <th scope="col">Product</th>
+                            <th scope="col">Product Name</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{ double total = 0;}
+                        @foreach (var product in Model)
+                        {
+                            <tr>
+                                @{total += product.Product.Price; }
+                                <td class="w-25">
+                                    <img src="@product.Product.ImageUrl" class="img-fluid img-thumbnail" alt="@product.Product.Name">
+                                </td>
+                                <td>@product.Product.Name</td>
+                                <td>€@product.Product.Price</td>
+                                <td>x @product.Quantity</td>
+                                <td>Added on: @product.DateCreated</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+
+                <div class="card text-center">
+                    <div class="card-header">
+                        Checkout
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Total Price</h5>
+                        <p class="card-text">Total is: €@Math.Round(total, 2)</p>
+                        <a asp-controller="Cart" asp-action="Checkout" class="btn btn-primary">Checkout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

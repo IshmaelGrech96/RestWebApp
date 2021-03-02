@@ -1,0 +1,29 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+
+@if (@TempData["AddToCartSuccess"] != null)
+{
+    <div class="alert alert-primary">@TempData["AddToCartSuccess"]</div>
+}
+else if (@TempData["AddToCartFail"] != null)
+{
+    <div class="alert alert-warning" role="alert">@TempData["AddToCartFail"]</div>
+}
+else if (@TempData["CheckoutSuccess"] != null)
+{
+    <div class="alert alert-primary">@TempData["CheckoutSuccess"]</div>
+}
+else if (@TempData["CheckoutFail"] != null)
+{
+    <div class="alert alert-warning" role="alert">@TempData["CheckoutFail"]</div>
+}
+else if (@TempData["Show"] != null)
+{
+    <div class="alert alert-primary">@TempData["Show"]</div>
+}
+else if (@TempData["Hide"] != null)
+{
+    <div class="alert alert-primary">@TempData["Hide"]</div>
+}

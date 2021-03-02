@@ -1,0 +1,59 @@
+﻿@using ShoppingCart.Domain.Models
+@model PaginatedList<ShoppingCart.Application.ViewModels.ProductViewModel>
+
+
+
+<div class="row">
+    @foreach (var product in Model)
+    {
+        if (product.Availability == "Available" || ViewContext.HttpContext.User.IsInRole("Admin"))
+        {
+        <div class="col-4 mb-5 d-flex align-items-stretch">
+            <div class="card" style="width: 18rem;">
+                <img src="@product.ImageUrl" class="card-img-top" alt="@product.Name" style="width: 250px; height: 175px;">
+                <div class="card-body">
+                    <h5 class="card-title">@product.Name</h5>
+                    <p class="card-text">Available quantity: @product.Stock</p>
+                    <p class="card-text">€@product.Price</p>
+                    <input type="number" id="@product.Id" class="form-control" value="1"/>
+                    <a href="/Products/Details?id=@product.Id" class="btn btn-primary">View Specifications</a>
+                    <!--<a asp-controller="Products" asp-action="AddToCart" asp-route-id="@product.Id" onclick="this.href+=document.getElementById('qta_field').value" class="btn btn-primary">Add to Cart</a>-->
+                    <a href='' onclick="this.href='Products/AddToCart?id=@product.Id&qty='+document.getElementById('@product.Id').value" class="btn btn-primary">Add To Cart</a>
+                    @if (ViewContext.HttpContext.User.IsInRole("Admin"))
+                    {
+                        if (product.Availability == "Available")
+                        {
+                            <a asp-controller="Products" asp-action="Hide" asp-route-id="@product.Id" onclick="return window.confirm('Are you sure?')" class="btn btn-secondary">Hide</a>
+                        }
+                        else
+                        {
+                            <a asp-controller="Products" asp-action="Show" asp-route-id="@product.Id" onclick="return window.confirm('Are you sure?')" class="btn btn-secondary">Show</a>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+        }
+    }
+</div>
+
+
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex - 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @prevDisabled">
+    Previous
+</a>
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex + 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @nextDisabled">
+    Next
+</a>
