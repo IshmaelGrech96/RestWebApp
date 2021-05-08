@@ -13,7 +13,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Our Website</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">LETSCOOKIT</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -34,12 +34,15 @@
                             </li>
                         }
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Products" asp-action="Index">View Products</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Products" asp-action="Index">Our Plans</a>
                         </li>
                         @if (ViewContext.HttpContext.User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Cart" asp-action="ViewCart">Shopping Cart</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Products" asp-action="MyOrders">My Orders</a>
                             </li>
                         }
                     </ul>
@@ -65,7 +68,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2020 - Ishmael Grech - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2021 - LETSCOOKIT LTD - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
 

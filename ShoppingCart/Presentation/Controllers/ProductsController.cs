@@ -85,6 +85,24 @@ namespace Presentation.Controllers
             
         }
 
+        public IActionResult MyOrders()
+        {
+            return View();
+
+        }
+
+        public IActionResult SingleMealPlan()
+        {
+            return View();
+
+        }
+
+        public IActionResult WeeklyMealPlan()
+        {
+            return View();
+
+        }
+
         [HttpPost]
         [Authorize(Roles = "Admin")]
         public IActionResult Add(ProductViewModel data, IFormFile file)

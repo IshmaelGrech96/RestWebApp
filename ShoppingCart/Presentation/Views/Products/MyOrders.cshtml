@@ -1,0 +1,45 @@
+﻿
+<h2 class="aboutus-title">My Orders</h2>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-image">
+                    <thead>
+                        <tr>
+                            <th scope="col">Product</th>
+                            <th scope="col">Product Name</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Recipe</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="w-25">
+                                <img src="" class="img-fluid img-thumbnail" alt="">
+                            </td>
+                            <td>Single Meal Plan</td>
+                            <td>€8</td>
+                            <td>x 1</td>
+                            <td>Ordered on: @System.DateTime.Now</td>
+                            <td><a asp-controller="Products" asp-action="SingleMealPlan" class="btn btn-secondary">View Recipe</a></td>
+                        </tr>
+                        <tr>
+                            <td class="w-25">
+                                <img src="" class="img-fluid img-thumbnail" alt="">
+                            </td>
+                            <td>Weekly Meal Plan</td>
+                            <td>€100</td>
+                            <td>x 1</td>
+                            <td>Ordered on: @System.DateTime.Now</td>
+                            <td><a asp-controller="Products" asp-action="WeeklyMealPlan" class="btn btn-secondary">View Recipe</a></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>

@@ -4,7 +4,7 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h2 class="aboutus-title">Details</h2>
 
 <div>
     <hr />
@@ -14,47 +14,47 @@
         </div>
         <div class="col-sm-6">
             <p class="font-weight-bold"> Name :  <span class="font-weight-normal">@Html.DisplayFor(model => model.Name)</span></p>
-            <p class="font-weight-bold"> Price :  €<span class="font-weight-normal">@Html.DisplayFor(model => model.Price)</span></p>
-            <p class="font-weight-bold"> Category :  <span class="font-weight-normal">@Html.DisplayFor(model => model.Category.Name)</span></p>
-            <p class="font-weight-bold"> Category :  <span class="font-weight-normal">@Html.DisplayFor(model => model.Category.Name)</span></p>
+            <p class="font-weight-bold"> Price :  € <span class="font-weight-normal">@Html.DisplayFor(model => model.Price)</span></p>
             <p class="font-weight-bold"> Free Delivery</p>
             <a href='' onclick="this.href='Products/AddToCart?id='+ @Html.DisplayFor(model => model.Id) +'&qty=1'" class="btn btn-primary">Add To Cart</a>
 
         </div>
         <div class="container">
-            <h2 class="text-center">Recipe Method</h2>
+            <br/>
+            <h2 class="aboutus-title">Recipe Description</h2>
         </div>
         @if (Model.Description == "Weekly Meal Plan 1")
         {
-        <div class="col-sm-12">
-        <p>Meal 1</p>
-        <p>
-            A plan aimed at people who are very active and/or work a physically demanding job, looking at reducing their calorie intake OR for people leading a sedentary lifestyle who are simply looking for a helping hand to maintain their shape. The plan consists of three meals to be taken during the day for the five working days of the week, all under 650 calories plus an approx. 200 calorie natural snack bar.
-        </p>
-        <!--
-    <div class="list-group">
-        <label class="list-group-item">
-            <input class="form-check-input me-1" type="checkbox" value="">
-            'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-        </label>
-        <label class="list-group-item">
-            <input class="form-check-input me-1" type="checkbox" value="">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-        </label>
-        <label class="list-group-item">
-            <input class="form-check-input me-1" type="checkbox" value="">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-        </label>
-        <label class="list-group-item">
-            <input class="form-check-input me-1" type="checkbox" value="">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-        </label>
-        <label class="list-group-item">
-            <input class="form-check-input me-1" type="checkbox" value="">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-        </label>
-    </div>-->
-    </div>
+            <div class="col-sm-12">
+                <p class="text-center">
+                    A plan aimed at people who are very active and/or work a physically demanding job, looking at reducing their calorie intake OR for people leading a sedentary lifestyle who are simply looking for a helping hand to maintain their shape. The plan consists of three meals to be taken during the day for the five working days of the week, all under 650 calories plus an approx. 200 calorie natural snack bar.
+                </p>
+                <div class="lightbox">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <img src="https://mdbootstrap.com/img/Photos/Thumbnails/Slides/1.jpg"
+                                 data-mdb-img="https://mdbootstrap.com/img/Photos/Slides/1.jpg"
+                                 alt="Lightbox image 1"
+                                 class="w-100 mb-2 mb-md-4 shadow-1-strong rounded" />
+                            <img src="https://mdbootstrap.com/img/Photos/Thumbnails/Square/1.jpg"
+                                 data-mdb-img="https://mdbootstrap.com/img/Photos/Square/1.jpg"
+                                 alt="Lightbox image 2"
+                                 class="w-100 shadow-1-strong rounded" />
+                        </div>
+                        <div class="col-lg-6">
+                            <img src="https://mdbootstrap.com/img/Photos/Thumbnails/Slides/1.jpg"
+                                 data-mdb-img="https://mdbootstrap.com/img/Photos/Slides/1.jpg"
+                                 alt="Lightbox image 1"
+                                 class="w-100 mb-2 mb-md-4 shadow-1-strong rounded" />
+                            <img src="https://mdbootstrap.com/img/Photos/Thumbnails/Square/1.jpg"
+                                 data-mdb-img="https://mdbootstrap.com/img/Photos/Square/1.jpg"
+                                 alt="Lightbox image 2"
+                                 class="w-100 shadow-1-strong rounded" />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         }
         else if (Model.Description == "Weekly Meal Plan 2")
         {
