@@ -11,5 +11,7 @@ namespace ShoppingCart.Domain.Interfaces
         void AddOrderDetails(OrderDetails orderDetails);
 
         IQueryable<OrderDetails> GetCartProducts(Guid id);
+
+        IQueryable<OrderDetails> GetOrderProducts(Guid userId);
     }
 }

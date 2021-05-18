@@ -18,14 +18,16 @@ namespace ShoppingCart.Application.Services
         private ICartProductRepository _cartProductRepo;
         private IUserRepository _userRepository;
         private ICartRepository _cartRepository;
+        private IOrderDetailsRepository _orderDetails;
 
-        public ProductsService(IProductsRepository productRepo, IMapper mapper,ICartProductRepository cartProductRepo, IUserRepository userRepository, ICartRepository cartRepository)
+        public ProductsService(IProductsRepository productRepo, IOrderDetailsRepository orderDetails, IMapper mapper,ICartProductRepository cartProductRepo, IUserRepository userRepository, ICartRepository cartRepository)
         {
             _productRepo = productRepo;
             _cartProductRepo = cartProductRepo;
             _userRepository = userRepository;
             _mapper = mapper;
             _cartRepository = cartRepository;
+            _orderDetails = orderDetails;
         }
 
         public void AddProduct(ProductViewModel data)
@@ -65,6 +67,13 @@ namespace ShoppingCart.Application.Services
             {
                 return true;
             }
+        }
+
+        public IQueryable<OrderDetailsViewModel> GetOrderDetailProducts(string email)
+        {
+           Guid id = _userRepository.GetUser(email).Id;
+            
+           return _orderDetails.GetOrderProducts(id).ProjectTo<OrderDetailsViewModel>(_mapper.ConfigurationProvider);
         }
 
         public void DeleteProduct(Guid id)

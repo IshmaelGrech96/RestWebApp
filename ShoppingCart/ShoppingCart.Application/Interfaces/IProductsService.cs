@@ -16,6 +16,7 @@ namespace ShoppingCart.Application.Interfaces
 
         void AddProduct(ProductViewModel data);
 
+        public IQueryable<OrderDetailsViewModel> GetOrderDetailProducts(string email);
         void DeleteProduct(Guid id);
 
         void AddToCart(Guid id,string email,int qty);

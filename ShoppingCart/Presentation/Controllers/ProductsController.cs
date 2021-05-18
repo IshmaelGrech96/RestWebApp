@@ -85,10 +85,15 @@ namespace Presentation.Controllers
             
         }
 
-        public IActionResult MyOrders()
+        public IActionResult ViewOrders()
         {
-            return View();
-
+            string email = HttpContext.User.Identity.Name;
+            var orderList = _productsService.GetOrderDetailProducts(email);
+            foreach(var i in orderList)
+            {
+                Console.WriteLine();
+            }
+            return View(orderList);
         }
 
         public IActionResult SingleMealPlan()

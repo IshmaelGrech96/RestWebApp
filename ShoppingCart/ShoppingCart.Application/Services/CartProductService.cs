@@ -49,7 +49,7 @@ namespace ShoppingCart.Application.Services
             var cartProducts = _cartProductRepo.GetCartProducts(_userRepository.GetUser(email).Id).ToList();
             foreach(CartProduct cp in cartProducts )
             {
-                OrderDetails orderDetails = new OrderDetails();
+                Domain.Models.OrderDetails orderDetails = new Domain.Models.OrderDetails();
                 orderDetails.OrderId = _orderRepository.GetOrder(_userRepository.GetUser(email).Id).OrderId;
                 orderDetails.Quantity = cp.Quantity;
                 orderDetails.DateCreated = System.DateTime.Now;
