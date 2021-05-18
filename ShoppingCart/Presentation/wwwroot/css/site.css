@@ -75,9 +75,7 @@ body {
   line-height: 60px; /* Vertically center the text there */
 }
 
-.card {
-    width: 19rem;
-}
+
 
 .btn {
     border-radius: 13px;
@@ -120,7 +118,7 @@ body {
 }
 
     .aboutus-title::after {
-        background: #fdb801 none repeat scroll 0 0;
+        background: #008000 none repeat scroll 0 0;
         bottom: 0;
         content: "";
         height: 2px;
@@ -137,15 +135,15 @@ body {
 }
 
 a:hover, a:active {
-    color: #ffb901;
+    color: #008000;
     text-decoration: none;
     outline: 0;
 }
 
 .aboutus-more {
-    border: 1px solid #fdb801;
+    border: 1px solid #008000;
     border-radius: 25px;
-    color: #fdb801;
+    color: #008000;
     display: inline-block;
     font-size: 14px;
     font-weight: 700;
@@ -162,7 +160,7 @@ a:hover, a:active {
 }
 
     .feature .feature-box .iconset::after {
-        background: #fdb801 none repeat scroll 0 0;
+        background: #008000 none repeat scroll 0 0;
         content: "";
         height: 150%;
         left: 43%;
@@ -201,10 +199,10 @@ a:hover, a:active {
     }
 
 .icon {
-    color: #f4b841;
+    color: #008000;
     padding: 0px;
     font-size: 40px;
-    border: 1px solid #fdb801;
+    border: 1px solid #008000;
     border-radius: 100px;
     color: #fdb801;
     font-size: 28px;
