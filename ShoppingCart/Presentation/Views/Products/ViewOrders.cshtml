@@ -17,7 +17,7 @@ else
             <table class="table table-image">
                 <thead>
                     <tr>
-                        <th scope="col">Product</th>
+                        <!--<th scope="col">Product</th>-->
                         <th scope="col">Product Name</th>
                         <th scope="col">Price</th>
                         <th scope="col">Quantity</th>
@@ -29,16 +29,26 @@ else
                 <tbody>
                     @foreach (var item in Model)
                     {
-                        <tr>
-                            <td class="w-25">
-                                <img src="" class="img-fluid img-thumbnail" alt="">
-                            </td>
-                            <td>@Html.DisplayFor(modelItem => item.Product.Name)</td>
-                            <td>€@Html.DisplayFor(modelItem => item.Product.Price)</td>
-                            <td>x @Html.DisplayFor(modelItem => item.Quantity)</td>
-                            <td>Ordered on: @Html.DisplayFor(modelItem => item.DateCreated)</td>
+                    <tr>
+                        <!--
+    <td class="w-25">
+        <img src="" class="img-fluid img-thumbnail" alt="">
+    </td>-->
+                        <td>@Html.DisplayFor(modelItem => item.Product.Name)</td>
+                        <td>€@Html.DisplayFor(modelItem => item.Product.Price)</td>
+                        <td>x @Html.DisplayFor(modelItem => item.Quantity)</td>
+                        <td>Ordered on: @Html.DisplayFor(modelItem => item.DateCreated)</td>
+                        @if (item.Product.Price == 102)
+                        {
+                            <td><a asp-controller="Products" asp-action="WeeklyMealPlan" class="btn btn-secondary">View Recipe</a></td>
+
+                        }
+                        else
+                        {
                             <td><a asp-controller="Products" asp-action="SingleMealPlan" class="btn btn-secondary">View Recipe</a></td>
-                        </tr>
+
+                        }
+                    </tr>
                     }
                 </tbody>
             </table>
